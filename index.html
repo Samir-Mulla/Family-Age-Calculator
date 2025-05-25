@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Family Age Calculator" />
+    <meta name="keywords" content="Family, Age, Calculator, JavaScript" />
+    <title>Family Age Calculator</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="theme-dropdown-wrapper">
+      <button
+        id="themeDropdownBtn"
+        class="theme-dropdown-btn"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+      >
+        <span class="selected-theme-icon">🌐</span>
+        <span class="selected-theme-text">System Mode</span>
+      </button>
+
+      <ul id="themeDropdown" class="theme-dropdown hidden" role="listbox">
+        <li role="option" data-theme="system">🌐 System</li>
+        <li role="option" data-theme="light">🌞 Light</li>
+        <li role="option" data-theme="dark">⏾ Dark</li>
+      </ul>
+    </div>
+
+    <h1>Family Age Calculator</h1>
+
+    <!-- <div class="theme-toggle-wrapper">
+  <input type="checkbox" id="themeToggle" />
+  <label for="themeToggle" class="toggle-label">
+    <span class="icon mode-icon">🌐</span>
+    <span class="icon sun">🌞</span>
+    <span class="icon moon">⏾</span>
+  </label>
+</div> -->
+
+    <form id="memberForm">
+      <label for="name">Name :</label>
+      <input
+        type="text"
+        placeholder="Enter Your Name Here."
+        id="name"
+        name="name"
+        required
+      />
+
+      <label for="dob">Date of Birth :</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <label for="relationship">Relationship :</label>
+      <select id="relationship" name="relationship" required>
+        <option value="">Select Relationship</option>
+        <option value="Father">Father</option>
+        <option value="Mother">Mother</option>
+        <option value="Son">Son</option>
+        <option value="Daughter">Daughter</option>
+        <option value="Brother">Brother</option>
+        <option value="Sister">Sister</option>
+        <option value="Grandfather">Grandfather</option>
+        <option value="Grandmother">Grandmother</option>
+        <option value="Uncle">Uncle</option>
+        <option value="Aunt">Aunt</option>
+        <option value="Cousin">Cousin</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="submit">Add Member</button>
+    </form>
+
+    <p
+      id="totalMembers"
+      style="text-align: center; font-family: inherit; margin-bottom: 15px"
+    >
+      Total Family Members :
+      <span id="memberCount" style="font-weight: bold">0</span>
+    </p>
+
+    <div id="searchSortFilter">
+      <input type="text" id="search" placeholder="Search by name..." />
+      <select id="sort">
+        <option value="">Sort by</option>
+        <option value="name">Name</option>
+        <option value="age">Age</option>
+      </select>
+      <select id="filter">
+        <option value="">Filter by Age</option>
+        <option value="0-18">0-18</option>
+        <option value="19-30">19-30</option>
+        <option value="31-50">31-50</option>
+        <option value="51+">51+</option>
+      </select>
+    </div>
+    <!-- <button id="shareBtn">Share Table</button> -->
+
+    <section style="overflow-x: auto">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Relationship</th>
+            <th>Age</th>
+            <th>Time Units</th>
+            <th class="action">Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </body>
+</html>
